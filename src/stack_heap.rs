@@ -18,13 +18,8 @@
 
 pub(crate) fn stack_heap() {
     // Stack
-    fn a() {
-        let _x = "hello";
-        let _y = 22;
-        b()
-    }
+    let _x = "hello";
+    let _y = 22;
     // Heap
-    fn b() {
-        let _x = String::from("world");
-    }
+    let _x = String::from("world");
 }

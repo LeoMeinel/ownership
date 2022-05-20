@@ -18,6 +18,7 @@
 
 pub(crate) fn string_slices() {
     slice_bad();
+    slice();
 }
 
 fn slice() {
@@ -25,8 +26,7 @@ fn slice() {
     let s2 = "hello world";
     let _hello = &s[0..5]; // [..5] -> begin to 5(excluded)
     let _world = &s[6..11]; // [6..] -> 6 to end []; [..] -> entire string
-
-    let word = first_word(&s2);
+    let word = first_word(s2);
     s.clear(); // Empty String
     println!("{}", word);
 }
@@ -38,7 +38,7 @@ fn first_word(s: &str) -> &str {
             return &s[0..i];
         }
     }
-    &s[..]
+    s
 }
 
 fn slice_bad() {
@@ -48,6 +48,7 @@ fn slice_bad() {
     println!("{}", word);
 }
 
+#[allow(clippy::ptr_arg)]
 fn first_word_bad(s: &String) -> usize {
     let bytes = s.as_bytes();
     for (i, &item) in bytes.iter().enumerate() {

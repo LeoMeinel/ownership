@@ -22,14 +22,17 @@ pub(crate) fn copy_move() {
     println!("{}", x);
     println!("{}", y);
     let s1 = String::from("hello");
-    let s2 = s1; // Move
-    let s3 = s2.clone(); // Copy
-    println!("{}", s1); // ERROR: Borrow of moved value
+    // Move
+    let s2 = s1;
+    // Copy
+    let s3 = s2.clone();
+    // ERROR: Borrow of moved value
+    //println!("{}", s1);
     println!("{}", s2);
     println!("{}", s3);
-	gives_copy();
-	gives_ownership();
-	gives_and_takes_back_ownership();
+    gives_copy();
+    gives_ownership();
+    gives_and_takes_back_ownership();
 }
 
 fn gives_copy() {
@@ -41,7 +44,8 @@ fn gives_copy() {
 fn gives_ownership() {
     let s = String::from("hello");
     takes_ownership(s);
-    println!("{}", s); // ERROR: Borrow of moved value
+    // ERROR: Borrow of moved value
+    //println!("{}", s);
 }
 
 fn gives_and_takes_back_ownership() {

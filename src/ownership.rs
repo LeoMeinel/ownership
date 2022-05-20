@@ -25,9 +25,7 @@
 
 pub(crate) fn ownership() {
     // variables are only valid inside this scope {}
-    {
-        let _a = "hello"; // Stack
-        let _b = String::from("hello"); // Heap
-    }
-    // variables are not valid anymore
+    let _a = "hello"; // Stack
+    let _b = String::from("hello"); // Heap
 }
+// variables are not valid anymore
